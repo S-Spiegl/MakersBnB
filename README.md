@@ -111,4 +111,8 @@ As a host
 So I know which spaces I have added 
 I want to see a list of the spaces I've added
 
+<<<<<<< HEAD
 
+=======
+-----
+>>>>>>> 5cf62e5aeee93e8288da3c8c735ff73271a091bf
