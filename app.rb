@@ -11,5 +11,16 @@ class MakersBnB < Sinatra::Base
     "Hello"
   end
 
+  get '/user/new' do
+    erb :'users/new'
+  end
+
+  post '/user' do 
+    redirect '/listings'
+  end 
+
+
+ 
+
   run! if app_file == $0
 end
