@@ -11,14 +11,14 @@
 
 ```As a user
 So that I can use MakersBnB
-I want to be able to sign_up with an username 
+I want to be able to sign_up with an username
 
 #(Also sign_up with password and handle, but put this in later)
 
 As a host
 So that I can list a space
 I want to be able to add a new space
-``` 
+```
 
 **Users can list multiple spaces:**
 
@@ -26,8 +26,8 @@ I want to be able to add a new space
 So that I can list multiple spaces
 I want to be able to add another space
 ```
-**Users should be able to name their space, provide a 
-short description of the 
+**Users should be able to name their space, provide a
+short description of the
 space, and a price per night.**
 ```
 As a host
@@ -36,15 +36,15 @@ I want my space to have a name, a description and a price
 ```
 
 
-**Users should be able to offer a range of dates 
+**Users should be able to offer a range of dates
 where their space is available.**
 ```
 As a host
 So that I can set when a property is available to rent
 I want to list available dates
 ```
-**Any signed-up user can request to hire any 
-space for one night, and this should be approved by the user 
+**Any signed-up user can request to hire any
+space for one night, and this should be approved by the user
 that owns that space.**
 ```
 As a guest
@@ -61,7 +61,7 @@ I want to be able to see my booking requests
 
 As a host
 So that I can confirm a booking
-I want to be able to approve or reject booking requests 
+I want to be able to approve or reject booking requests
 ```
 **When the user adds a space, that space needs to be associated with their account**
 ```
@@ -69,10 +69,10 @@ As a host
 So I know which spaces I have added
 I want to see a list of the spaces I've added
 ```
-**Nights for which a space has already been booked should not 
+**Nights for which a space has already been booked should not
 be available for users to book that space.**
 
-**Until a user has confirmed a booking request, that space can still be 
+**Until a user has confirmed a booking request, that space can still be
 booked for that night.**
 
 -----
@@ -80,35 +80,35 @@ booked for that night.**
 **MVP**:
 
 ```
-So that 
-I can use MakersBnB 
+So that
+I can use MakersBnB
 I want to be able to sign_up with an username
 
 As a host
 So that I can list a space
 I want to be able to add a new space
 
-So that I can list multiple spaces 
+So that I can list multiple spaces
 I want to be able to add another space
 
-As a guest 
-So that I can see plan my holiday 
+As a guest
+So that I can see plan my holiday
 I want to see a list of properties available
 
-As a guest 
-So that I can book a night at a space 
+As a guest
+So that I can book a night at a space
 I want to be able to make a booking request to the host
 
 As a host
-So that I can manage booking requests 
+So that I can manage booking requests
 I want to be able to see my booking requests
 
-As a host 
-So that I can confirm a booking 
+As a host
+So that I can confirm a booking
 I want to be able to approve or reject booking requests
 
 As a host
-So I know which spaces I have added 
+So I know which spaces I have added
 I want to see a list of the spaces I've added
 
 As a user
@@ -121,4 +121,4 @@ I want to be able to login
 ***MVP***
 
 
-![Screenshot 2022-05-16 at 15 59 25](https://user-images.githubusercontent.com/98267087/168623294-3ac7558e-bca8-490f-9de9-c33bbcb28436.png)
+![image_title](/images/domain_modelling.png)
