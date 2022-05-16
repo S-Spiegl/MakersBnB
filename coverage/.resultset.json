@@ -1,7 +1,66 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/erlantzramossanchez/Projects/MakersBnB/spec/features/add_new_space_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/erlantzramossanchez/Projects/MakersBnB/spec/space_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/erlantzramossanchez/Projects/MakersBnB/lib/space.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          2,
+          2,
+          null,
+          0,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1652714546
+    "timestamp": 1652719991
   }
 }
