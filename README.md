@@ -69,4 +69,5 @@ booked for that night.**
 As a host
 So I know which spaces I have added
 I want to see a list of the spaces I've added
+
 -----
