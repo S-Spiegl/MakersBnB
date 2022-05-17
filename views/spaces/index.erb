@@ -1,7 +1,7 @@
 <ul>
   <% @spaces.each do |space| %>
     <li>
-      <%= space.name_of_space %>
+      <%= space.name_of_space if space.available %>
     </li>
   <%end%>
 </ul>
