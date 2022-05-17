@@ -1,6 +1,11 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
+      "/Users/jimmylyons/Documents/Programming/Makers/Projects/week5/MakersBnB/spec/features/sign_up_spec.rb": {
+        "lines": [
+          1,
+=======
       "/Users/sevenpiglets/Makers/MakersBnB/spec/features/add_new_space_spec.rb": {
         "lines": [
           1,
@@ -27,10 +32,16 @@
           1,
           1,
           null,
+>>>>>>> main
           1,
           1,
           1,
           1,
+<<<<<<< HEAD
+          1,
+          1,
+          null,
+=======
           null,
           null,
           null,
@@ -86,6 +97,7 @@
           null,
           null,
           4,
+>>>>>>> main
           null,
           null,
           null,
@@ -94,6 +106,10 @@
         ]
       }
     },
+<<<<<<< HEAD
+    "timestamp": 1652781723
+=======
     "timestamp": 1652780630
+>>>>>>> main
   }
 }
