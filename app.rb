@@ -19,12 +19,12 @@ class MakersBnB < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/user' do 
+  post '/user' do
     result = User.create(username: params[:username])
     session[:id] = result.id
     session[:username] = result.username
     redirect '/user'
-  end 
+  end
 
   get '/user' do
     @username = session[:username]
@@ -41,6 +41,12 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
+    erb :'spaces/index'
+  end
+
+  post '/spaces/request/:id' do
+    session[:space_id] = params[:id]
     @spaces = Space.all
     erb :'spaces/index'
   end
