@@ -32,13 +32,14 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/sessions/new" do
-    erb :'user/sessions'
+    erb :'users/sessions'
   end
 
   post "/sessions" do
     user = User.authenticate(username: params[:username])
     if user
       session[:user_id] = user.id
+      session[:username] = user.username
       redirect '/user'
     else
       redirect '/sessions/new'
