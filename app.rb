@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/space'
+require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
 
@@ -19,7 +20,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user' do 
-    session[:username] = params[:username]
+    result = User.create(username: params[:username])
+    session[:id] = result.id
+    session[:username] = result.username
     redirect '/user'
   end 
 
