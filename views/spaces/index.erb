@@ -1,7 +1,13 @@
 <ul>
   <% @spaces.each do |space| %>
     <li>
-      <%= space.name_of_space if space.available %>
+      <a href="<%=space.name_of_space if space.available %>" target="_blank">  <%= space.name_of_space %>
+      </a>
+      <form action="/spaces " method="post">
+        <input type='hidden' name='request' value=Submit />
+        <input type="submit" value="Submit" />
+      </form>
     </li>
   <%end%>
 </ul>
+
