@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @username = session[:username]
+    @user = User.find(id: session[:user_id])
     erb :home
   end
 
@@ -23,12 +23,11 @@ class MakersBnB < Sinatra::Base
   post '/user' do 
     result = User.create(username: params[:username])
     session[:user_id] = result.id
-    session[:username] = result.username
     redirect "/user"
   end 
 
   get "/user" do
-    @username = session[:username]
+    @user = User.find(id: session[:user_id])
     erb :user
   end
 
@@ -40,7 +39,6 @@ class MakersBnB < Sinatra::Base
     user = User.authenticate(username: params[:username])
     if user
       session[:user_id] = user.id
-      session[:username] = user.username
       redirect '/user'
     else
       redirect '/sessions/new'

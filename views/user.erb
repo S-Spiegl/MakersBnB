@@ -1,5 +1,8 @@
-<%= @username %> logged in
+<% if @user %>
 
+  <%= @user.username %> logged in
+
+<% end %>
 <form action="/sessions/destroy" method="post" >
   <input type="submit" value="Log out" >
 </form>

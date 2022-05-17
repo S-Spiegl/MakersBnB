@@ -35,4 +35,20 @@ class User
     end
   end
 
+  def self.find(id:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+    p id
+
+    result = connection.exec_params("SELECT * FROM users WHERE id = ($1);", [id])
+    if result.any?
+      User.new(id: result[0]['id'], username: result[0]['username'])
+    else
+      nil
+    end
+  end
+
 end
