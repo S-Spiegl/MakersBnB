@@ -1,7 +1,99 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/sevenpiglets/Makers/MakersBnB/spec/features/add_new_space_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/sevenpiglets/Makers/MakersBnB/spec/space_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/sevenpiglets/Makers/MakersBnB/lib/space.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          null,
+          2,
+          2,
+          null,
+          0,
+          null,
+          null,
+          2,
+          2,
+          3,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          4,
+          4,
+          null,
+          0,
+          null,
+          null,
+          4,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1652714546
+    "timestamp": 1652780630
   }
 }

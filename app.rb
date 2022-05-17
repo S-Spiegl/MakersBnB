@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/space'
 
 class MakersBnB < Sinatra::Base
 
@@ -10,6 +11,21 @@ class MakersBnB < Sinatra::Base
   get '/' do
     "Hello"
   end
+
+  get '/spaces/add' do
+    erb :'spaces/add'
+  end
+
+  post '/spaces/add' do
+    Space.create(name_of_space: params[:name_of_space])
+    redirect '/spaces'
+  end
+
+  get '/spaces' do
+    @spaces = Space.all
+    erb :'spaces/index'
+  end
+
 
   run! if app_file == $0
 end
