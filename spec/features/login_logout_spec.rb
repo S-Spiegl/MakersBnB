@@ -27,10 +27,16 @@ feature 'login' do
     click_button('Log in')
 
     expect(current_path).to eq '/user'
+    visit '/'
+    expect(page).to have_content "Logged in as test_name"
+    visit '/user'
 
     click_button 'Log out'
 
     expect(current_path).to eq '/'
+    expect(page).not_to have_content "Logged in as test_name"
   end
+
+
 
 end

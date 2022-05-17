@@ -12,7 +12,8 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Makers BnB"
+    @username = session[:username]
+    erb :home
   end
 
   get '/user/new' do
