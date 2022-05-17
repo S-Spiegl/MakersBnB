@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kierancarty/Projects/MakersBnB/spec/features/sign_up_spec.rb": {
+      "/Users/jimmylyons/Documents/Programming/Makers/Projects/week5/MakersBnB/spec/features/sign_up_spec.rb": {
         "lines": [
           1,
           1,
@@ -15,14 +15,10 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1652717857
+    "timestamp": 1652781723
   }
 }

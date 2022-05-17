@@ -7,6 +7,8 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     "Hello"
   end
@@ -16,11 +18,14 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user' do 
-    redirect '/listings'
+    session[:username] = params[:username]
+    redirect '/user'
   end 
 
-
- 
+  get '/user' do
+    @username = session[:username]
+    erb :user
+  end
 
   run! if app_file == $0
 end
