@@ -20,8 +20,17 @@ feature 'login' do
     expect(current_path).to eq '/sessions/new'
   end
 
-  # scenario 'user can log out' do
-  #   'test'
-  # end
+  scenario 'user can log out' do
+    new_user = User.create(username: 'test_name')
+    visit '/sessions/new'
+    fill_in(:username, with: 'test_name')
+    click_button('Log in')
+
+    expect(current_path).to eq '/user'
+
+    click_button 'Log out'
+
+    expect(current_path).to eq '/'
+  end
 
 end

@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Hello"
+    "Makers BnB"
   end
 
   get '/user/new' do
@@ -44,6 +44,11 @@ class MakersBnB < Sinatra::Base
     else
       redirect '/sessions/new'
     end
+  end
+
+  post "/sessions/destroy" do
+    session.clear
+    redirect '/'
   end
 
   get '/spaces/add' do
