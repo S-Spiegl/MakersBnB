@@ -28,8 +28,11 @@ class User
     end
 
     result = connection.exec_params("SELECT * FROM users WHERE username = $1", [username])
-    p result
-    User.new(id: result[0]['id'], username: result[0]['username'])
+    if result.any?
+      User.new(id: result[0]['id'], username: result[0]['username'])
+    else
+      nil
+    end
   end
 
 end

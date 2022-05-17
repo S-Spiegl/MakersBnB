@@ -12,6 +12,14 @@ feature 'login' do
     expect(page).to have_content 'test_name logged in'
   end
 
+  scenario 'user try to log in with a username not in the database yet' do
+
+    visit 'sessions/new'
+    fill_in(:username, with: 'not_created_yet')
+    click_button('Log in')
+    expect(current_path).to eq '/sessions/new'
+  end
+
   # scenario 'user can log out' do
   #   'test'
   # end
