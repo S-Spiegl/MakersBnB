@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/space'
 
 class MakersBnB < Sinatra::Base
 
@@ -21,6 +22,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.all
     erb :'spaces/index'
   end
 

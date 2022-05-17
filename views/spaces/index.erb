@@ -1,1 +1,7 @@
-Casa Ramos Sanchez
+<ul>
+  <% @spaces.each do |space| %>
+    <li>
+      <%= space.name_of_space %>
+    </li>
+  <%end%>
+</ul>
