@@ -14,6 +14,7 @@ class Request
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    connection.exec_params("INSERT INTO requests (space_name, space_id, sender_id) VALUES($1, $2, $3) RETURNING space_name, space_id, sender_id;", [space_name, space_id, sender_id])
+    result = connection.exec_params("INSERT INTO requests (space_name, space_id, sender_id) VALUES($1, $2, $3) RETURNING space_name, space_id, sender_id;", [space_name, space_id, sender_id])
+    Request.new(space_name: result[0]['space_name'], space_id: result[0]['space_id'], sender_id: result[0]['sender_id'])
   end
 end
