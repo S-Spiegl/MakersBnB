@@ -1,0 +1,22 @@
+<h1> Welcome to MakersBnB </h1>
+
+<body> 
+<% if @user %>
+
+Logged in as <%= @user.username %>
+
+<% end %>
+
+<br>
+<br>
+
+<form action='/user/new'>
+  <input type='submit' value='Sign up' />
+</form>
+<br>
+<form action='/sessions/new'>
+  <input type='submit' value='Log in' />
+</form>
+
+
+</body>
