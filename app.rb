@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/space'
 require_relative './lib/user'
+require_relative './lib/request'
 
 class MakersBnB < Sinatra::Base
 
@@ -20,11 +21,12 @@ class MakersBnB < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/user' do 
+  post '/user' do
     result = User.create(username: params[:username])
     session[:user_id] = result.id
-    redirect "/user"
-  end 
+    session[:username] = result.username
+    redirect '/user'
+  end
 
   get "/user" do
     @user = User.find(id: session[:user_id])
@@ -55,7 +57,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces/add' do
-    Space.create(name_of_space: params[:name_of_space])
+    Space.create(name_of_space: params[:name_of_space], user_id: session[:id])
     redirect '/spaces'
   end
 
@@ -63,6 +65,17 @@ class MakersBnB < Sinatra::Base
     @spaces = Space.all
     erb :'spaces/index'
   end
+
+  get '/spaces/request/:id' do
+    @space_id = params[:id]
+    erb :'spaces/request'
+  end
+
+  post '/spaces/request/:id' do
+    Request.create(space_id: params[:id], sender_id: session[:user_id], message: params[:message])
+    redirect '/spaces'
+  end
+
 
   run! if app_file == $0
 end
