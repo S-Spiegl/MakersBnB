@@ -12,7 +12,8 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Hello"
+    @user = User.find(id: session[:user_id])
+    erb :home
   end
 
   get '/user/new' do
@@ -21,14 +22,32 @@ class MakersBnB < Sinatra::Base
 
   post '/user' do 
     result = User.create(username: params[:username])
-    session[:id] = result.id
-    session[:username] = result.username
-    redirect '/user'
+    session[:user_id] = result.id
+    redirect "/user"
   end 
 
-  get '/user' do
-    @username = session[:username]
+  get "/user" do
+    @user = User.find(id: session[:user_id])
     erb :user
+  end
+
+  get "/sessions/new" do
+    erb :'users/sessions'
+  end
+
+  post "/sessions" do
+    user = User.authenticate(username: params[:username])
+    if user
+      session[:user_id] = user.id
+      redirect '/user'
+    else
+      redirect '/sessions/new'
+    end
+  end
+
+  post "/sessions/destroy" do
+    session.clear
+    redirect '/'
   end
 
   get '/spaces/add' do
@@ -44,7 +63,6 @@ class MakersBnB < Sinatra::Base
     @spaces = Space.all
     erb :'spaces/index'
   end
-
 
   run! if app_file == $0
 end
