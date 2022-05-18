@@ -2,7 +2,7 @@
   <% @spaces.each do |space| %>
     <li class="space" id="space-<%= space.id%>">
       <%=space.name_of_space if space.available %>
-      <form action="/spaces/request/<%= space.id %>" method="post">
+      <form action="/spaces/request/<%= space.id %>" method="get">
         <input type="hidden" name="request"/>
         <input type="submit" value="request"/>
       </form>

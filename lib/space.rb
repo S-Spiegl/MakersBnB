@@ -38,8 +38,8 @@ class Space
       connection = PG.connect(dbname: 'makersbnb')
     end
 
-    connection.exec_params("INSERT INTO spaces (name_of_space, available, user_id) VALUES($1, $2, $3) RETURNING id, name_of_space, user_id;", [name_of_space, available, user_id])
-
+    result = connection.exec_params("INSERT INTO spaces (name_of_space, available, user_id) VALUES($1, $2, $3) RETURNING id, name_of_space, user_id;", [name_of_space, available, user_id])
+    Space.new(id: result[0]['id'], name_of_space: result[0]['name_of_space'], available: result[0]['available'])
   end
 
 

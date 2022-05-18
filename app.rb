@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/space'
 require_relative './lib/user'
+require_relative './lib/request'
 
 class MakersBnB < Sinatra::Base
 
@@ -45,10 +46,14 @@ class MakersBnB < Sinatra::Base
     erb :'spaces/index'
   end
 
+  get '/spaces/request/:id' do
+    @space_id = params[:id]
+    erb :'spaces/request'
+  end
+
   post '/spaces/request/:id' do
-    session[:space_id] = params[:id]
-    @spaces = Space.all
-    erb :'spaces/index'
+    Request.create(space_id: params[:id], sender_id: session[:id], message: params[:message])
+    redirect '/spaces'
   end
 
 
