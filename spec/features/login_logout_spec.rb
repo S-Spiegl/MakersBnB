@@ -8,7 +8,7 @@ feature 'login' do
     fill_in(:username, with: 'test_name')
     click_button('Log in')
 
-    expect(current_path).to eq "/user"
+    expect(current_path).to eq "/spaces"
     expect(page).to have_content 'test_name logged in'
   end
 
@@ -26,7 +26,8 @@ feature 'login' do
     fill_in(:username, with: 'test_name')
     click_button('Log in')
 
-    expect(current_path).to eq '/user'
+    expect(current_path).to eq '/spaces'
+    expect(page).to have_content 'test_name logged in'
     visit '/'
     expect(page).to have_content "Logged in as test_name"
     visit '/user'
@@ -36,7 +37,5 @@ feature 'login' do
     expect(current_path).to eq '/'
     expect(page).not_to have_content "Logged in as test_name"
   end
-
-
 
 end

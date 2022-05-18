@@ -1,3 +1,9 @@
+<% if @user %>
+
+  <%= @user.username %> logged in
+
+<% end %>
+
 <ul>
   <% @spaces.each do |space| %>
     <li class="space" id="space-<%= space.id%>">
@@ -11,3 +17,11 @@
     </li>
   <%end%>
 </ul>
+
+<form action="/user" method="get">
+  <input type="submit" value="User Page"/>
+</form>
+
+<form action="/spaces/add" method="get">
+  <input type="submit" value="Add new space"/>
+</form>
