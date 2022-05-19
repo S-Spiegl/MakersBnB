@@ -47,4 +47,24 @@ class Request
       Request.new(id: request['id'], space_id: request['space_id'], sender_id: request['sender_id'], status: request['status'], message: request['message']) 
     end 
   end
+
+  def self.accept(request_id:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+
+    connection.exec_params("UPDATE requests SET status = 'accepted' WHERE id = $1;", [request_id])
+  end
+
+  def self.reject(request_id:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+
+    connection.exec_params("UPDATE requests SET status = 'rejected' WHERE id = $1;", [request_id])
+  end
 end

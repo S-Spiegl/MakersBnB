@@ -31,6 +31,14 @@ Host requests<br>
         Space.find(id: request.space_id).name_of_space %> 
        Message: <%= request.message %> 
        Status: <%= request.status %> 
+       <% if request.status == 'pending' %>
+        <form action="/request/accept/<%= request.id %>" method="post">
+          <input type="submit" value="Accept"/>
+        </form>
+        <form action="/request/reject/<%= request.id %>" method="post">
+          <input type="submit" value="Reject"/>
+        </form>
+      <% end %>
     </li>
   <%end%>
 </ul>  
