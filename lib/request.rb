@@ -29,7 +29,7 @@ class Request
       connection = PG.connect(dbname: 'makersbnb')
     end
     
-    result = connection.exec_params("SELECT * FROM requests WHERE space_id = (SELECT id FROM spaces WHERE user_id = $1);",[host_id])
+    result = connection.exec_params("SELECT * FROM requests WHERE space_id IN (SELECT id FROM spaces WHERE user_id = $1);",[host_id])
     result.map do |request|
       Request.new(id: request['id'], space_id: request['space_id'], sender_id: request['sender_id'], status: request['status'], message: request['message']) 
     end 
