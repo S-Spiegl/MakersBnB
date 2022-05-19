@@ -34,4 +34,17 @@ class Request
       Request.new(id: request['id'], space_id: request['space_id'], sender_id: request['sender_id'], status: request['status'], message: request['message']) 
     end 
   end
+
+  def self.find_by_guest(guest_id:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+    
+    result = connection.exec_params("SELECT * FROM requests WHERE sender_id = $1;",[guest_id])
+    result.map do |request|
+      Request.new(id: request['id'], space_id: request['space_id'], sender_id: request['sender_id'], status: request['status'], message: request['message']) 
+    end 
+  end
 end

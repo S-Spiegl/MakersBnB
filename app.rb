@@ -32,6 +32,7 @@ class MakersBnB < Sinatra::Base
     @user = User.find(id: session[:user_id])
     @user_spaces = Space.find_by_user(id: session[:user_id])
     @host_requests = Request.find_by_host(host_id: session[:user_id])
+    @guest_requests = Request.find_by_guest(guest_id: session[:user_id])
     erb :user
   end
 
