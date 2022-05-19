@@ -20,4 +20,5 @@ feature 'List of users added spaces' do
     expect(page).not_to have_content 'random name'
     expect(page).not_to have_content 'another random name'
   end
+
 end
