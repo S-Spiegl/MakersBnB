@@ -11,6 +11,18 @@ navbar (probably with dead links)-->
 h1 {
   text-align: center;
   font-family: 'Merriweather', serif;
+  font-size: 80;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-size: 60;
+  color: white;
+}
+
+.text_div {
+  margin-top: 80%;
 }
 body {
   background: white;
@@ -18,22 +30,25 @@ body {
 }
 
 .wrapper {
-  width: 1000px;
+  width: 1500px;
   margin: 0 auto;
+  margin-top: 40px;
   display: grid;
+  grid-gap: 40px;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
-  background-color: #2196F3
+  <!-- background-color: #2196F3 -->
 }
 
-.wrapper > div {
-  background-color: rgba(255, 255, 255, 0.8)
-}
+<!-- .wrapper > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+} -->
 
 .one {
   grid-column: 1 / 2;
   grid-row: 1;
-  border: 1px solid black;
+  <!-- border: 1px solid black; -->
   <!-- grid-auto-rows: minmax(100px, auto); -->
 }
 
@@ -81,6 +96,7 @@ grid-column: span 2;
   margin: auto;
   padding-bottom: 300px;
   padding-right: 20px;
+  z-index: -1;
 
 }
 
@@ -94,10 +110,13 @@ grid-column: span 2;
   margin: auto;
   padding-bottom: 30px;
   padding-left: 30px;
+  z-index: -2;
 
 }
 
-form:hover {opacity: 0.7;}
+input:hover {
+  opacity: 0.7;
+}
 
 </style>
 
@@ -132,10 +151,13 @@ font-family: 'Varela Round', sans-serif; -->
 <div class="wrapper">
 
   <div class="one" id="item1">
-    <h1> Welcome to Olive Garden </h1>
+    <h1> Welcome to Mi Casa Su Casa </h1>
   </div>
 
   <div class="two" id="sign_up_door_div">
+    <div class="text_div">
+      <h2>Sign Up</h2>
+    </div>
     <form action='/user/new' method='get'>
     <input type="image" id="img1" src='https://source.unsplash.com/PWjA3zA497I' />
     <input type="hidden" name="sign_up" value="sign_up" />
@@ -143,7 +165,10 @@ font-family: 'Varela Round', sans-serif; -->
   </div>
 
   <div class="three" id="login_door_div">
-    <form action='/user/new' method='get'>
+    <div class="text_div">
+      <h2>Login</h2>
+    </div>
+    <form action='/user' method='get'>
     <input type="image" id="img2" src='https://source.unsplash.com/f7pTMJ1ekqI' />
     <input type="hidden" name="login" value="login" />
     </form>
