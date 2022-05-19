@@ -10,24 +10,14 @@ class User
   end
 
   def self.create(username:)
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = PG.connect(dbname: 'makersbnb')
-    end
 
-    result = connection.exec_params("INSERT INTO users (username) VALUES($1) RETURNING id, username ;", [username])
+    result = DatabaseConnection.query("INSERT INTO users (username) VALUES($1) RETURNING id, username ;", [username])
     User.new(id: result[0]['id'], username: result[0]['username'])
   end
 
   def self.authenticate(username:)
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = PG.connect(dbname: 'makersbnb')
-    end
 
-    result = connection.exec_params("SELECT * FROM users WHERE username = $1", [username])
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username = $1", [username])
     if result.any?
       User.new(id: result[0]['id'], username: result[0]['username'])
     else
@@ -36,13 +26,8 @@ class User
   end
 
   def self.find(id:)
-    if ENV['RACK_ENV'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = PG.connect(dbname: 'makersbnb')
-    end
 
-    result = connection.exec_params("SELECT * FROM users WHERE id = ($1);", [id])
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = ($1);", [id])
     if result.any?
       User.new(id: result[0]['id'], username: result[0]['username'])
     else
