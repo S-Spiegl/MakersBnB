@@ -12,16 +12,19 @@
   <body>
 
     <div class="content">
+      <div class="sign-up-box"> 
+        <h2>Sign up here</h2>     
+        <form class="sign-up-form" action="/user" method="post">
+          <label for="username">
+            <p>
+              Username:
+            <p>
+            <input class="name-input" type="text" name="username" placeholder="Enter Username" />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
 
-      <h2>Sign up here</h2>
-      <form id= "sign_up" action="/user" method="post">
-        <label for="username">
-          Username
-          <input type="text" name="username" placeholder="Enter Username" />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-
+      </div>
     </div>
 
   </body>

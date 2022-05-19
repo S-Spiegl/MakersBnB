@@ -1,17 +1,53 @@
 body {
   margin: 0 auto;
   font-family: 'Merriweather', serif;
+  background-image: url(https://source.unsplash.com/xg8z_KhSorQ);
  }
 
- .content {
-  width: 600px;
+.content {
   margin: 0 auto;
+  border: 1px solid red;
+  padding-top: 60px;
+  font-size: 19px;
 }
 
-#id {
-  align-content: center;
+.username {
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding-top: 60px;
+  font-size: 19px;
 }
 
+.sign-up-box {
+  background-color: rgb(233, 241, 235);
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;     
+  justify-content: space-evenly;
+  align-items: center;
+  border: 5px solid black;
+}
+
+.sign-up-form {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 5 auto;     
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-between;
+  border: 5px solid black;
+}
+
+.name-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
 
 h2 {
   color: black;
@@ -20,4 +56,5 @@ h2 {
 
 p {
   color: black;
+  text-align: center;
 }
