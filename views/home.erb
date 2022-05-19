@@ -8,33 +8,51 @@ navbar (probably with dead links)-->
 
 <style>
 
-h1 { 
+h1 {
   text-align: center;
+  font-family: 'Merriweather', serif;
 }
 body {
   background: white;
   text-align: center;
 }
 
-#wrapper { 
-  width: 1000px; 
+.wrapper {
+  width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  background-color: #2196F3
+}
+
+.wrapper > div {
+  background-color: rgba(255, 255, 255, 0.8)
 }
 
 .one {
-  grid-column: 1;
+  grid-column: 1 / 2;
   grid-row: 1;
+  border: 1px solid black;
+  <!-- grid-auto-rows: minmax(100px, auto); -->
+}
+
+.two {
+  grid-column: 1;
+  grid-row: 2;
   margin: 0 auto;
 
 }
 
-.two {
+.three {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   margin: 0 auto;
 
+}
+
+#item1 {
+grid-column: span 2;
 }
 
 #sign_up_door_div {
@@ -79,34 +97,58 @@ body {
 
 }
 
+form:hover {opacity: 0.7;}
+
 </style>
 
-
-
-<body>
-
-  <h1> Welcome to MakersBnB </h1>
-
+<div>
   <% if @user %>
 
   Logged in as <%= @user.username %>
 
   <% end %>
+</div>
 
-<div id="wrapper">
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Prata&family=Roboto+Mono&family=Russo+One&family=Varela+Round&display=swap" rel="stylesheet">
+<!-- CSS rules to specify families
 
-  <div class="one" id="sign_up_door_div">
+font-family: 'Bangers', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Dongle', sans-serif;
+font-family: 'IBM Plex Serif', serif;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Merriweather', serif;
+font-family: 'Prata', serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Russo One', sans-serif;
+font-family: 'Varela Round', sans-serif; -->
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="one" id="item1">
+    <h1> Welcome to Olive Garden </h1>
+  </div>
+
+  <div class="two" id="sign_up_door_div">
     <form action='/user/new' method='get'>
     <input type="image" id="img1" src='https://source.unsplash.com/PWjA3zA497I' />
     <input type="hidden" name="sign_up" value="sign_up" />
     </form>
   </div>
 
-  <div class="two" id="login_door_div">
+  <div class="three" id="login_door_div">
     <form action='/user/new' method='get'>
     <input type="image" id="img2" src='https://source.unsplash.com/f7pTMJ1ekqI' />
     <input type="hidden" name="login" value="login" />
     </form>
   </div>
+</div>
 
 </body>
+</html>
