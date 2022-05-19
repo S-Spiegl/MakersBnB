@@ -1,4 +1,101 @@
-<h1> Welcome to Olive Garden </h1>
+<!-- to consider:
+fonts
+hover action
+resize effect on divs and other elements
+footer (privacy, modern slavery act etc)
+navbar (probably with dead links)-->
+
+
+<style>
+body {
+background: white;
+}
+
+#sign_up_door_div {
+  border: 2px solid black
+  width: 300px;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+  margin: 0px auto;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#sign_up_door_div {
+  position: relative;
+  width: 400px;
+  height: 750px;
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 3px solid black;
+
+}
+
+#login_door_div {
+  position: relative;
+  width: 400px;
+  height: 750px;
+  overflow: hidden;
+  margin-right: 10%;
+  border: 3px solid black;
+
+}
+
+#img1 {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  margin: auto;
+  padding-bottom: 300px;
+  padding-right: 20px;
+
+}
+
+#img2 {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  margin: auto;
+  padding-bottom: 30px;
+  padding-left: 30px;
+
+}
+
+#door2 {
+  background-color: color;
+  margin-left: 30%;
+  margin-top: 8%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  margin: 0px auto;
+  margin-right: 10%;
+  width: 300;
+  height: 500;
+  overflow: hidden;
+  border: 2px solid black"
+}
+
+</style>
+
+<h1> Welcome to MakersBnB </h1>
 
 <body>
 <% if @user %>
@@ -10,13 +107,38 @@ Logged in as <%= @user.username %>
 <br>
 <br>
 
-<form action='/user/new'>
-  <input type='submit' value='Sign up' />
-</form>
-<br>
-<form action='/sessions/new'>
-  <input type='submit' value='Log in' />
-</form>
+
+<!-- <div id="door2">
+  <form action='/user/new' method='get'>
+    <input class="door1" type='image' src='https://source.unsplash.com/PWjA3zA497I' name='sign_up' type='submit' id='sign_up'></>
+    <input type="hidden" name="sign_up" value="sign_up" />
+    </form>
+</div> -->
+<div class="row">
+  <div class="column" id="sign_up_door_div">
+    <form action='/user/new' method='get'>
+    <input type="image" id="img1" src='https://source.unsplash.com/PWjA3zA497I' />
+    <input type="hidden" name="sign_up" value="sign_up" />
+    </form>
+  </div>
+
+  <div class="column" id="login_door_div">
+    <form action='/user/new' method='get'>
+    <input type="image" id="img2" src='https://source.unsplash.com/f7pTMJ1ekqI' />
+    <input type="hidden" name="login" value="login" />
+    </form>
+  </div>
+</div>
+
+<!-- <div id="form_container">
+  <form action='/user/new'>
+    <input type='submit' value='Sign up' />
+  </form>
+  <br>
+  <form action='/sessions/new'>
+    <input type='submit' value='Log in' />
+  </form>
+<div> -->
 
 
 </body>
