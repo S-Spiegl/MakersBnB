@@ -24,9 +24,14 @@ h2 {
 .text_div {
   margin-top: 80%;
 }
+
 body {
-  background: white;
+  background-image: url("https://source.unsplash.com/nb9PCJNkNgw");
   text-align: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  z-index: -3;
 }
 
 .wrapper {
@@ -40,8 +45,21 @@ body {
   <!-- background-color: #2196F3 -->
 }
 
+.background_div {
+    background: white;
+    opacity:0.5;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-3;
+}
+
 <!-- .wrapper > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color:
   z-index: 2;
 } -->
 
@@ -120,14 +138,6 @@ input:hover {
 
 </style>
 
-<div>
-  <% if @user %>
-
-  Logged in as <%= @user.username %>
-
-  <% end %>
-</div>
-
 <html>
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,6 +157,14 @@ font-family: 'Russo One', sans-serif;
 font-family: 'Varela Round', sans-serif; -->
 </head>
 <body>
+
+  <div>
+    <% if @user %>
+
+    Logged in as <%= @user.username %>
+
+    <% end %>
+  </div>
 
 <div class="wrapper">
 
@@ -168,7 +186,7 @@ font-family: 'Varela Round', sans-serif; -->
     <div class="text_div">
       <h2>Login</h2>
     </div>
-    <form action='/user' method='get'>
+    <form action='/sessions/new' method='get'>
     <input type="image" id="img2" src='https://source.unsplash.com/f7pTMJ1ekqI' />
     <input type="hidden" name="login" value="login" />
     </form>
