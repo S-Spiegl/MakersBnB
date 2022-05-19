@@ -36,6 +36,16 @@ class MakersBnB < Sinatra::Base
     erb :user
   end
 
+  post '/request/accept/:id' do
+    Request.accept(request_id: params[:id])
+    redirect '/user'
+  end
+
+  post '/request/reject/:id' do
+    Request.reject(request_id: params[:id])
+    redirect '/user'
+  end
+
   get "/sessions/new" do
     erb :'users/sessions'
   end
