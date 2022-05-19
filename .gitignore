@@ -2,3 +2,5 @@ Gemfile.lock
 coverage/.last_run.json
 coverage/.resultset.json
 .DS_Store
+spec/.DS_Store
+views/.DS_Store
