@@ -21,3 +21,14 @@
 <form action="/spaces/add" method="get">
   <input type="submit" value="Add new space"/>
 </form>
+
+<ul>
+  <% @host_requests.each do |request| %>
+     <li class="request" id="request-<%= request.id%>">
+       <%= User.find(id: request.sender_id).username %> has requested to book <%=
+        Space.find(id: request.space_id).name_of_space %> 
+       Message: <%= request.message %> 
+       Status: <%= request.status %> 
+    </li>
+  <%end%>
+</ul>  

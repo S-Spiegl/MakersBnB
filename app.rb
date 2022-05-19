@@ -25,12 +25,13 @@ class MakersBnB < Sinatra::Base
     result = User.create(username: params[:username])
     session[:user_id] = result.id
     session[:username] = result.username
-    redirect '/user'
+    redirect '/spaces'
   end
 
   get "/user" do
     @user = User.find(id: session[:user_id])
     @user_spaces = Space.find_by_user(id: session[:user_id])
+    @host_requests = Request.find_by_host(host_id: session[:user_id])
     erb :user
   end
 

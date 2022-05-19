@@ -49,8 +49,18 @@ class Space
     result.map do |space|
       Space.new(id: space['id'], name_of_space: space['name_of_space'], available: space['available'])
     end
-  end
+  end 
+
+  def self.find(id:)
+    if ENV['RACK_ENV'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
   
+    space = connection.exec_params("SELECT * FROM spaces WHERE id = ($1);",[id])
+    Space.new(id: space[0]['id'], name_of_space: space[0]['name_of_space'], available: space[0]['available'])
+  end 
   
   def change_into_boolean(letter)
     return true if letter == 't'
