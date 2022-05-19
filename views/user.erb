@@ -3,6 +3,7 @@
 <% end %>
 
 <ul>
+Host spaces <br>
   <% @user_spaces.each do |space| %>
     <li class="space" id="space-<%= space.id%>">
       <%=space.name_of_space %>
@@ -23,10 +24,23 @@
 </form>
 
 <ul>
+Host requests<br>
   <% @host_requests.each do |request| %>
      <li class="request" id="request-<%= request.id%>">
        <%= User.find(id: request.sender_id).username %> has requested to book <%=
         Space.find(id: request.space_id).name_of_space %> 
+       Message: <%= request.message %> 
+       Status: <%= request.status %> 
+    </li>
+  <%end%>
+</ul>  
+
+<ul>
+Guest requests<br>
+  <% @guest_requests.each do |request| %>
+     <li class="request" id="request-<%= request.id%>">
+       You have requested to book
+       <%= Space.find(id: request.space_id).name_of_space %> 
        Message: <%= request.message %> 
        Status: <%= request.status %> 
     </li>
