@@ -1,8 +1,23 @@
 <% if @user %>
-
   <%= @user.username %> logged in
-
 <% end %>
+
+<ul>
+  <% @user_spaces.each do |space| %>
+    <li class="space" id="space-<%= space.id%>">
+      <%=space.name_of_space %>
+    </li>
+  <%end%>
+</ul>
+
 <form action="/sessions/destroy" method="post" >
   <input type="submit" value="Log out" >
+</form>
+
+<form action="/spaces" method="get">
+  <input type="submit" value="Spaces Page"/>
+</form>
+
+<form action="/spaces/add" method="get">
+  <input type="submit" value="Add new space"/>
 </form>

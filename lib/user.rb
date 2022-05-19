@@ -41,7 +41,6 @@ class User
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    p id
 
     result = connection.exec_params("SELECT * FROM users WHERE id = ($1);", [id])
     if result.any?
