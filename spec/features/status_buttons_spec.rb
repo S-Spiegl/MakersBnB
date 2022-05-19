@@ -18,8 +18,6 @@ feature 'buttons to accept/reject requests' do
 
     expect(page).to have_content "pending"
 
-    save_and_open_page
-
     click_button('Reject')
 
     expect(page).to have_content "rejected"
