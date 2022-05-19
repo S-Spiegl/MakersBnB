@@ -1,0 +1,23 @@
+body {
+  margin: 0 auto;
+  font-family: 'Merriweather', serif;
+ }
+
+ .content {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#id {
+  align-content: center;
+}
+
+
+h2 {
+  color: black;
+  text-align: center;
+}
+
+p {
+  color: black;
+}
