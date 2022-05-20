@@ -1,11 +1,13 @@
 body {
     margin: 0 auto;
-    background-image: url(./images/login4.jpg);
+    background-image: url(./images/med2.jpg);
     font-family: 'Merriweather', serif;
     background-size: 120vw;
     background-color: white;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-position-x: -100%; 
+    background-position-y: 80%;
     font-size: 19px;
     z-index: -1;
    }
