@@ -6,7 +6,7 @@ body {
   background-position: 0% 50%;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  font-size: 19px;
+  font-size: 17px;
  }
 
 
@@ -28,6 +28,18 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 250px; 
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 14px;
+}
+
+#banner-content-user { 
+  float: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px; 
   padding: 10px;
   padding-left: 25px;
   font-size: 14px;
@@ -64,7 +76,36 @@ body {
   padding-bottom: 12px;
   margin: 5px;
   width: 95%;
+}
 
+.request { 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgb(139, 139, 139);
+  padding: 5px;
+  padding-bottom: 12px;
+  margin: 5px;
+  width: 95%;
+}
+
+.accept-reject {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.space_text {
+  font-size: 14px;
+}
+
+.title_text {
+  width: 95%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 30;
 }
 
 input[type="text"] {
@@ -115,10 +156,13 @@ input[type="submit"]:active {
 
 h2 {
   color: black;
-  text-align: center;
 }
 
 p {
   color: black;
-  text-align: center;
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 21;
 }
