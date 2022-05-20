@@ -6,7 +6,9 @@
 Host spaces <br>
   <% @user_spaces.each do |space| %>
     <li class="space" id="space-<%= space.id%>">
-      <%=space.name_of_space %>
+      <%=space.name_of_space %><br>
+      Description: <%=space.description %><br>
+      Price per night: £<%=space.price_per_night %>
     </li>
   <%end%>
 </ul>

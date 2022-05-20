@@ -1,27 +1,50 @@
-<% if @user %>
+<!DOCTYPE html>
 
-  <%= @user.username %> logged in
+<html>
 
-<% end %>
+  <head>
+  <title>Create User</title>
+  <link href="<%= url('../../styles_spaces.css') %>" rel="stylesheet" 
+  type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Prata&family=Roboto+Mono&family=Russo+One&family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
 
-<ul>
-  <% @spaces.each do |space| %>
-    <li class="space" id="space-<%= space.id%>">
-      <%=space.name_of_space if space.available %>
-      <form action="/spaces/request/<%= space.id %>" method="get">
-        <input type="hidden" name="request"/>
-        <input type="submit" value="request"/>
+  <body>
+    <div id="banner">
+      <div id="banner-content">
+        <% if @user %>
+
+          <%= @user.username %> logged in
+
+        <% end %>
+
+        <form action="/user" method="get">
+          <input type="submit" value="User Page"/>
+        </form>
+      </div>
+    </div>
+    <div class="content">
+
+      <form class="new_space_button" action="/spaces/add" method="get">
+        <input type="submit" value="Add new space"/>
       </form>
-      <!-- <input type="text" name="message" />
-      <button type="button">send</button> -->
-    </li>
-  <%end%>
-</ul>
+      
 
-<form action="/user" method="get">
-  <input type="submit" value="User Page"/>
-</form>
+        <% @spaces.each do |space| %>
+          <div class="space" id="space-<%= space.id%>">
+            <% if space.available %>
+              <%=space.name_of_space %><br>
+              Description: <%=space.description %><br>
+              Price per night: £<%=space.price_per_night %>
+              <form action="/spaces/request/<%= space.id %>" method="get">
+                <input type="hidden" name="request"/>
+                <input type="submit" value="request"/>
+              </form>
+             <% end %>
+          </div>
+        <%end%>
 
-<form action="/spaces/add" method="get">
-  <input type="submit" value="Add new space"/>
-</form>
+      
+    </div>
+  </body>
+</html>
