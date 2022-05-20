@@ -1,93 +1,48 @@
 # MakersBnB
 
-**project specification**
------
-**Any signed-up user can list a new space:**
+## Specification
 
+### Headline specifications
 
-**User stories**
+- Any signed-up user can list a new space.
+- Users can list multiple spaces.
+- Users should be able to name their space, provide a short description of the space, and a price per night.
+- Users should be able to offer a range of dates where their space is available.
+- Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
+- Nights for which a space has already been booked should not be available for users to book that space.
+- Until a user has confirmed a booking request, that space can still be booked for that night.
 
-**Any signed-up user can list a new space:**
+### Nice-to-haves
 
-```As a user
-So that I can use MakersBnB
-I want to be able to sign_up with an username
+- Users should receive an email whenever one of the following happens:
+ - They sign up
+ - They create a space
+ - They update a space
+ - A user requests to book their space
+ - They confirm a request
+ - They request to book a space
+ - Their request to book a space is confirmed
+ - Their request to book a space is denied
+- Users should receive a text message to a provided number whenever one of the following happens:
+ - A user requests to book their space
+ - Their request to book a space is confirmed
+ - Their request to book a space is denied
+- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
+- Basic payment implementation though Stripe.
 
-#(Also sign_up with password and handle, but put this in later)
+## Minimum Viable Product
 
-As a host
-So that I can list a space
-I want to be able to add a new space
-```
-
-**Users can list multiple spaces:**
-
-``` As a host
-So that I can list multiple spaces
-I want to be able to add another space
-```
-**Users should be able to name their space, provide a
-short description of the
-space, and a price per night.**
-```
-As a host
-So that I can describe my space
-I want my space to have a name, a description and a price
-```
-
-
-**Users should be able to offer a range of dates
-where their space is available.**
-```
-As a host
-So that I can set when a property is available to rent
-I want to list available dates
-```
-**Any signed-up user can request to hire any
-space for one night, and this should be approved by the user
-that owns that space.**
-```
-As a guest
-So that I can see plan my holiday
-I want to see a list of properties available
-
-As a guest
-So that I can book a night at a space
-I want to be able to make a booking request to the host
-
-As a host
-So that I can manage booking requests
-I want to be able to see my booking requests
-
-As a host
-So that I can confirm a booking
-I want to be able to approve or reject booking requests
-```
-**When the user adds a space, that space needs to be associated with their account**
-```
-As a host
-So I know which spaces I have added
-I want to see a list of the spaces I've added
-```
-**Nights for which a space has already been booked should not
-be available for users to book that space.**
-
-**Until a user has confirmed a booking request, that space can still be
-booked for that night.**
-
------
-
-**MVP**:
-
+The items below were agreed to be the minimum viable product by the team:
 ```
 So that
 I can use MakersBnB
-I want to be able to sign_up with an username
+I want to be able to sign_up with a username
 
 As a host
 So that I can list a space
 I want to be able to add a new space
 
+As a host
 So that I can list multiple spaces
 I want to be able to add another space
 
@@ -114,6 +69,7 @@ I want to see a list of the spaces I've added
 As a user
 So that I can see information specific to me,
 I want to be able to login
+```
 -----
 
 =======
