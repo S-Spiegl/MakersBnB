@@ -42,10 +42,8 @@ body {
     align-items: center;
   }
 
-  #textarea {
-    display: flex;
-    width: 400px;  
-        
+  textarea {
+    resize: none;    
   }
   
   input[type="text"] {
