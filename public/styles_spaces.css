@@ -64,7 +64,10 @@ body {
   padding-bottom: 12px;
   margin: 5px;
   width: 95%;
+}
 
+.space_text {
+  font-size: 14px;
 }
 
 input[type="text"] {
@@ -115,10 +118,9 @@ input[type="submit"]:active {
 
 h2 {
   color: black;
-  text-align: center;
 }
 
 p {
   color: black;
-  text-align: center;
+  font-size: 10px;
 }

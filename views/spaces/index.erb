@@ -32,10 +32,12 @@
 
         <% @spaces.each do |space| %>
           <div class="space" id="space-<%= space.id%>">
-            <% if space.available %>
-              <%=space.name_of_space %><br>
-              Description: <%=space.description %><br>
-              Price per night: £<%=space.price_per_night %>
+            <div class="space_text">
+              <% if space.available %>
+                <h2><%=space.name_of_space %><br></h2>
+                Description: <%=space.description %><br>
+                Price per night: £<%=space.price_per_night %>
+            </div>
               <form action="/spaces/request/<%= space.id %>" method="get">
                 <input type="hidden" name="request"/>
                 <input type="submit" value="request"/>
