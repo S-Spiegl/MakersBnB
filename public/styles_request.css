@@ -43,9 +43,7 @@ body {
   }
 
   #textarea {
-    display: flex;
-    width: 400px;  
-        
+    resize: none;    
   }
   
   input[type="text"] {

@@ -1,11 +1,13 @@
 body {
     margin: 0 auto;
-    background-image: url(./images/login4.jpg);
+    background-image: url(./images/olive-tree.jpg);
     font-family: 'Merriweather', serif;
     background-size: 120vw;
     background-color: white;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-position-x: -50%; 
+    background-position-y: 60%;
     font-size: 19px;
     z-index: -1;
    }
@@ -23,8 +25,8 @@ body {
   .sign-up-box {
     border-radius: 2px;
     background-color: whitesmoke;
-    height: 350px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     margin: 5% auto;     
@@ -32,6 +34,15 @@ body {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border: 1px solid black;
+  }
+
+/* can't stop main backdrop from intruding on banner
+when page squished... changing it to px rather than % 
+would solve this but less reliable on different screen 
+sizes */
+
+  #textarea {
+    resize: none;
   }
   
   .sign-up-form {
