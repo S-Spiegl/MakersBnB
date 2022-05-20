@@ -1,58 +1,95 @@
-<% if @user %>
-  <%= @user.username %> logged in
-<% end %>
+<!DOCTYPE html>
 
-<ul>
-Host spaces <br>
-  <% @user_spaces.each do |space| %>
-    <li class="space" id="space-<%= space.id%>">
-      <%=space.name_of_space %><br>
-      Description: <%=space.description %><br>
-      Price per night: £<%=space.price_per_night %>
-    </li>
-  <%end%>
-</ul>
+<html>
 
-<form action="/sessions/destroy" method="post" >
-  <input type="submit" value="Log out" >
-</form>
+  <head>
+  <title>Create User</title>
+  <link href="<%= url('../../styles_spaces.css') %>" rel="stylesheet" 
+  type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Prata&family=Roboto+Mono&family=Russo+One&family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
 
-<form action="/spaces" method="get">
-  <input type="submit" value="Spaces Page"/>
-</form>
+  <body>
 
-<form action="/spaces/add" method="get">
-  <input type="submit" value="Add new space"/>
-</form>
+    <div id="banner">
+      <div id="banner-content-user">
 
-<ul>
-Host requests<br>
-  <% @host_requests.each do |request| %>
-     <li class="request" id="request-<%= request.id%>">
-       <%= User.find(id: request.sender_id).username %> has requested to book <%=
-        Space.find(id: request.space_id).name_of_space %> 
-       Message: <%= request.message %> 
-       Status: <%= request.status %> 
-       <% if request.status == 'pending' %>
-        <form action="/request/accept/<%= request.id %>" method="post">
-          <input type="submit" value="Accept"/>
-        </form>
-        <form action="/request/reject/<%= request.id %>" method="post">
-          <input type="submit" value="Reject"/>
-        </form>
+       <% if @user %>
+        <%= @user.username %> logged in
       <% end %>
-    </li>
-  <%end%>
-</ul>  
 
-<ul>
-Guest requests<br>
-  <% @guest_requests.each do |request| %>
-     <li class="request" id="request-<%= request.id%>">
-       You have requested to book
-       <%= Space.find(id: request.space_id).name_of_space %> 
-       Message: <%= request.message %> 
-       Status: <%= request.status %> 
-    </li>
-  <%end%>
-</ul>  
+      <form action="/sessions/destroy" method="post" >
+        <input type="submit" value="Log out" >
+      </form>
+
+      <form action="/spaces" method="get">
+        <input type="submit" value="Spaces Page"/>
+      </form>
+
+      </div>
+    </div>
+
+    <div class="content">
+
+      <form class="new_space_button" action="/spaces/add" method="get">
+        <input type="submit" value="Add new space"/>
+      </form>
+
+
+      <div class="title_text">
+        <h1>Host spaces<h1>
+      </div>
+        <% @user_spaces.each do |space| %>
+          <div class="space" id="space-<%= space.id%>">
+            <div class="space_text">
+              <h2>
+              <%=space.name_of_space %><br>
+              </h2>
+              Description: <%=space.description %><br>
+              Price per night: £<%=space.price_per_night %>
+            </div>
+          </div>
+        <%end%>
+
+
+      <div class="title_text">
+        <h1>Host requests<h1>
+      </div>
+
+        <% @host_requests.each do |request| %>
+          <div class="request" id="request-<%= request.id%>">
+            <%= User.find(id: request.sender_id).username %> has requested to book <%=
+              Space.find(id: request.space_id).name_of_space %> 
+              <br>
+              Message: <%= request.message %> 
+              <br>
+              Status: <%= request.status %> 
+            <div class="accept-reject">
+              <% if request.status == 'pending' %>
+                <form action="/request/accept/<%= request.id %>" method="post">
+                  <input type="submit" value="Accept"/>
+                </form>
+                <form action="/request/reject/<%= request.id %>" method="post">
+                  <input type="submit" value="Reject"/>
+                </form>
+              <% end %>
+            </div>
+          </div>
+        <%end%>
+
+      <div class="title_text">
+        <h1>Guest requests<h1>
+      </div>
+      
+      <% @guest_requests.each do |request| %>
+        <div class="request" id="request-<%= request.id%>">
+          You have requested to book
+          <%= Space.find(id: request.space_id).name_of_space %> <br>
+          Message: <%= request.message %> <br>
+          Status: <%= request.status %> 
+        </div>
+      <%end%>
+    
+    </div>
+  </body>
+</html>
