@@ -1,4 +1,8 @@
-<form action="/spaces/request/<%= @space_id %>" method="post">
-  <input type="text" name="message"/>
-  <input type="submit" value="send"/>
+<h1>Request a space</h1>
+
+<form action="/spaces/request/<%= @space_id %>" method="post" id="request_form">
 </form>
+
+<textarea rows="4" cols="50" name="message" form="request_form" placeholder="Write a message for the host...">
+</textarea><br>
+<input type="submit" value="send" form="request_form"/>
