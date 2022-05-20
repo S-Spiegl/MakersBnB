@@ -12,6 +12,7 @@ h1 {
   text-align: center;
   font-family: 'Merriweather', serif;
   font-size: 80;
+  color: black;
 }
 
 h2 {
@@ -24,24 +25,45 @@ h2 {
 .text_div {
   margin-top: 80%;
 }
+
 body {
-  background: white;
+  background-image: url("https://source.unsplash.com/rxQL0ieF_Bs");
   text-align: center;
+  width: 100vw;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+
+}
+
+.background_div {
+    background: white;
+    opacity:0.7;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-1;
+    height: 120vh;
+
 }
 
 .wrapper {
-  width: 1500px;
+  width: 100vw;
   margin: 0 auto;
   margin-top: 40px;
   display: grid;
   grid-gap: 40px;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-columns: auto auto;
-  <!-- background-color: #2196F3 -->
+  column-gap: unset;
 }
 
 <!-- .wrapper > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.4);
   z-index: 2;
 } -->
 
@@ -55,6 +77,7 @@ body {
 .two {
   grid-column: 1;
   grid-row: 2;
+  margin-left: 15vw;
   margin: 0 auto;
 
 }
@@ -62,6 +85,7 @@ body {
 .three {
   grid-column: 2;
   grid-row: 2;
+  margin-right: 15vw;
   margin: 0 auto;
 
 }
@@ -70,13 +94,16 @@ body {
 grid-column: span 2;
 }
 
+#item4 {
+  grid-column: span 2;
+}
+
 #sign_up_door_div {
   position: relative;
   width: 400px;
   height: 750px;
   overflow: hidden;
-  border: 3px solid black;
-
+  border: 3px solid white;
 }
 
 #login_door_div {
@@ -84,7 +111,7 @@ grid-column: span 2;
   width: 400px;
   height: 750px;
   overflow: hidden;
-  border: 3px solid black;
+  border: 3px solid white;
 }
 
 #img1 {
@@ -120,14 +147,6 @@ input:hover {
 
 </style>
 
-<div>
-  <% if @user %>
-
-  Logged in as <%= @user.username %>
-
-  <% end %>
-</div>
-
 <html>
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,10 +167,21 @@ font-family: 'Varela Round', sans-serif; -->
 </head>
 <body>
 
+  <div>
+    <% if @user %>
+
+    Logged in as <%= @user.username %>
+
+    <% end %>
+  </div>
+
 <div class="wrapper">
 
+<div class="background_div">
+  </div>
+
   <div class="one" id="item1">
-    <h1> Welcome to Mi Casa Su Casa </h1>
+    <h1>Mi Casa Su Casa </h1>
   </div>
 
   <div class="two" id="sign_up_door_div">
@@ -168,11 +198,12 @@ font-family: 'Varela Round', sans-serif; -->
     <div class="text_div">
       <h2>Login</h2>
     </div>
-    <form action='/user' method='get'>
+    <form action='/sessions/new' method='get'>
     <input type="image" id="img2" src='https://source.unsplash.com/f7pTMJ1ekqI' />
     <input type="hidden" name="login" value="login" />
     </form>
   </div>
+
 </div>
 
 </body>
