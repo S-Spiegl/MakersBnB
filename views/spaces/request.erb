@@ -1,8 +1,27 @@
-<h1>Request a space</h1>
+<html>
 
-<form action="/spaces/request/<%= @space_id %>" method="post" id="request_form">
-</form>
+  <head>
+    <title>Create User</title>
+      <link href="<%= url('../../styles_request.css') %>" rel="stylesheet" 
+      type="text/css" />
+      <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cormorant+Garamond:wght@300&family=Dongle:wght@300;400;700&family=IBM+Plex+Serif:wght@100;300&family=Julius+Sans+One&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Prata&family=Roboto+Mono&family=Russo+One&family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
 
-<textarea rows="4" cols="50" name="message" form="request_form" placeholder="Write a message for the host...">
-</textarea><br>
-<input type="submit" value="send" form="request_form"/>
+  <body>
+    <div id="main-backdrop">
+      <div class="request-box">
+        <form action="/spaces/request/<%= @space_id %>" method="post" id="request_form">
+          <p>
+            Write a message to the host
+          <p>
+        </form>
+
+        <textarea rows="4" cols="50" name="message" form="request_form" placeholder="Write a message for the host...">
+        </textarea><br>
+        <input type="submit" value="send" form="request_form"/>
+      </div>
+    </div>
+
+</body>
+
+</html>
