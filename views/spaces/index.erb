@@ -7,13 +7,15 @@
 <ul>
   <% @spaces.each do |space| %>
     <li class="space" id="space-<%= space.id%>">
-      <%=space.name_of_space if space.available %>
-      <form action="/spaces/request/<%= space.id %>" method="get">
-        <input type="hidden" name="request"/>
-        <input type="submit" value="request"/>
-      </form>
-      <!-- <input type="text" name="message" />
-      <button type="button">send</button> -->
+      <% if space.available %>
+        <%=space.name_of_space %><br>
+        Description: <%=space.description %><br>
+        Price per night: £<%=space.price_per_night %>
+        <form action="/spaces/request/<%= space.id %>" method="get">
+          <input type="hidden" name="request"/>
+          <input type="submit" value="request"/>
+        </form>
+      <% end %>
     </li>
   <%end%>
 </ul>

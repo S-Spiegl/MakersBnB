@@ -2,8 +2,8 @@ feature 'List of users added spaces' do
   scenario "When a user visits their 'User page', it displays a list of their added properties" do
     new_user = User.create(username: 'test_name')
     second_user_id = new_user.id.to_i + 1
-    Space.create(name_of_space: 'random name', user_id: second_user_id)
-    Space.create(name_of_space: 'another random name', user_id: second_user_id)
+    Space.create(name_of_space: 'random name', user_id: second_user_id, description: 'Description_test', price_per_night: 1)
+    Space.create(name_of_space: 'another random name', user_id: second_user_id, description: 'Description_test', price_per_night: 1)
     visit '/sessions/new'
     fill_in(:username, with: 'test_name')
     click_button 'Log in'
@@ -12,6 +12,8 @@ feature 'List of users added spaces' do
 
     click_button 'Add new space'
     fill_in 'name_of_space', with: 'Flat iron building'
+    fill_in 'description', with: 'Description_test'
+    fill_in 'price_per_night', with: 1
     click_button 'Add Space'
     click_button 'User Page'
 
