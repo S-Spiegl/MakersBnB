@@ -5,15 +5,15 @@
 1. Start by cloning this repo
 2. Run bundler to install dependencies. Follow the instructions to install any that are missing and not automatically installed. 
 3. set up your tables as follows:
-4. enter <code># psql postgres<code> in the terminal:
+4. enter ```# psql postgres``` in the terminal:
 5. once in postgresql, enter the info found in db/migrations/01_create_databases.sql (as individual entries). This will create the databases.
-6. navigate to the database with <code># \c makersbnb<code> and enter all the info found in db/migrations/02_create_tables.sql. This will create the tables for the user experience.
-7. navigate to the test database with <code># \c makersbnb_test<code> and again enter all the info found in db/migrations/02_create_tables.sql. This will create the tables for testing. 
-8. start up the server with <code>$ rackup<code>
+6. navigate to the database with ```# \c makersbnb``` and enter all the info found in db/migrations/02_create_tables.sql. This will create the tables for the user experience.
+7. navigate to the test database with ```# \c makersbnb_test``` and again enter all the info found in db/migrations/02_create_tables.sql. This will create the tables for testing. 
+8. start up the server with ```$ rackup```
 9. navigate to the relevant localhost address, which should be visible in the CLI. 
 10. Use the website.
-11. to view the info in the databases, navigate to the database you wish to view, then enter <code># \dt<code> to view all tables.
-12. to view a specific table, e.g. spaces, enter SELECT * FROM spaces
+11. to view the info in the databases, navigate to the database you wish to view, then enter ```# \dt``` to view all tables.
+12. to view a specific table, e.g. spaces, enter ```SELECT * FROM``` spaces
 13. to run tests, run rspec
 
 ## Specification
